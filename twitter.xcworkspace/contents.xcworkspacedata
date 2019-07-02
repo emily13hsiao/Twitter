@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/emily13hsiao/Desktop/Twitter/twitter/View Controllers/TweetCell.h">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/emily13hsiao/Desktop/Twitter/twitter/View Controllers/TweetCell.m">
+   </FileRef>
+   <FileRef
       location = "group:twitter.xcodeproj">
    </FileRef>
    <FileRef
