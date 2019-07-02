@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -63,7 +65,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.tweetArray[indexPath.row];
 
-    //[cell.profilePictureView setImageWithURL:tweet.user.]; set the image
+    [cell.profilePictureView setImageWithURL:tweet.user.profilePictureURL];
     cell.profilePictureView = nil; //update later
     cell.usernameLabel.text = tweet.user.screenName;
     cell.nameLabel.text = tweet.user.name;
@@ -71,6 +73,10 @@
     cell.tweetTextLabel.text = tweet.text;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 200;
 }
 
 
