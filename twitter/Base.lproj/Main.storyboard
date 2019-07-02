@@ -131,7 +131,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE"/>
+                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="C7S-eP-4F6">
+                            <connections>
+                                <segue destination="7IZ-VO-OQI" kind="presentation" id="NUg-DR-CPj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ysI-h4-ylF" id="LhG-mn-cKw"/>
                     </connections>
@@ -145,6 +151,9 @@
             <objects>
                 <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="FTQ-G1-N2b" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PA6-BD-ewa">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="bV8-0T-ZPi"/>
+                    </navigationItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytz-Ev-cUB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -158,23 +167,64 @@
             </objects>
             <point key="canvasLocation" x="860" y="36.431784107946029"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="OZg-SE-mhc">
+        <!--Compose View Controller-->
+        <scene sceneID="VCL-3x-IYM">
             <objects>
-                <viewController id="mJ4-PH-Bxq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xjm-Ri-w26">
+                <viewController id="apw-Hc-3fV" customClass="ComposeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ns-f5-hT4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="foF-7Z-BCy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Uaj-wJ-mwE"/>
+                        <viewLayoutGuide key="safeArea" id="YHM-AT-34p"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TCW-Qh-ScC">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="IDF-4B-5fa">
+                            <connections>
+                                <segue destination="FTQ-G1-N2b" kind="presentation" id="902-jh-1Ig"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="composeTweetLabel" destination="foF-7Z-BCy" id="GyY-tk-8Ur"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mEQ-cf-fWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9II-FD-FZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="801"/>
+            <point key="canvasLocation" x="1799.2" y="834.33283358320841"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1uC-UR-bq7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7IZ-VO-OQI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yX8-Nk-gF9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="apw-Hc-3fV" kind="relationship" relationship="rootViewController" id="k28-OB-ybz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmm-c0-7ao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="834.33283358320841"/>
         </scene>
     </scenes>
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="902-jh-1Ig"/>
+    </inferredMetricsTieBreakers>
 </document>
