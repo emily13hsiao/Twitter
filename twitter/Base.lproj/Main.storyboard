@@ -155,10 +155,10 @@
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="Lbl-k5-U4i" eventType="touchUpInside" id="W66-pM-u6b"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="didTapLogout:" destination="Lbl-k5-U4i" id="uim-Iw-9oa"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="C7S-eP-4F6">
                             <connections>
