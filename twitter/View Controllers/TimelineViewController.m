@@ -120,9 +120,11 @@
     return cell;
 }
 
+/**
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 200;
 }
+ **/
 
 
 - (void)didTweet:(nonnull Tweet *)tweet {
