@@ -116,17 +116,21 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25M-yE-72J">
-                                                    <rect key="frame" x="276" y="159" width="84" height="30"/>
+                                                    <rect key="frame" x="232" y="159" width="128" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="favor-icon"/>
+                                                    <state key="normal" title="Button" image="favor-icon">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didTapFavorite:" destination="4vg-pO-Q1h" eventType="touchUpInside" id="4b6-og-74e"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e54-oY-APA">
-                                                    <rect key="frame" x="121" y="159" width="84" height="30"/>
+                                                    <rect key="frame" x="74" y="159" width="131" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="retweet-icon"/>
+                                                    <state key="normal" title="Button" image="retweet-icon">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="didTapRetweet:" destination="4vg-pO-Q1h" eventType="touchUpInside" id="fDE-k9-dBu"/>
                                                     </connections>

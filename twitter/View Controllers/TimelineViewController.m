@@ -110,12 +110,13 @@
 
     [cell.profilePictureView setImageWithURL:tweet.user.profilePictureURL];
     
-    cell.usernameLabel.text = tweet.user.screenName;
-    cell.nameLabel.text = tweet.user.name;
-    cell.timestampLabel.text = tweet.createdAtString;
-    cell.tweetTextLabel.text = tweet.text;
-    cell.tweet = tweet;
+    [cell.likeButton setTitle:[NSString stringWithFormat:@"%i", tweet.favoriteCount] forState:UIControlStateNormal];
+    [cell.likeButton setTitle:[NSString stringWithFormat:@"%i", tweet.favoriteCount] forState:UIControlStateSelected];
     
+    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i", tweet.retweetCount] forState:UIControlStateNormal];
+    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i", tweet.retweetCount] forState:UIControlStateSelected];
+    
+    cell.tweet = tweet;
     return cell;
 }
 
