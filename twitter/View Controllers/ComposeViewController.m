@@ -19,13 +19,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-- (IBAction)didTapSend:(id)sender {
+- (IBAction)didTapSend:(id)sender {\
     [[APIManager shared] postStatusWithText:self.composeTweetLabel.text completion:^(Tweet *tweet, NSError *error) {
         if (error){
             NSLog(@"Error composing Tweet: %@", error.localizedDescription);
         }
         else{
             NSLog(@"Compose Tweet Success!");
+            [self.delegate didTweet:tweet];
             [self dismissViewControllerAnimated:true completion:nil];
         }
     }];

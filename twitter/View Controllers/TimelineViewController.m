@@ -10,8 +10,9 @@
 #import "APIManager.h"
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "ComposeViewController.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *tweetArray;
 
@@ -89,6 +90,13 @@
 }
  **/
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+    composeController.delegate = self;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweetArray.count;
 }
@@ -110,6 +118,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 200;
+}
+
+
+- (void)didTweet:(nonnull Tweet *)tweet {
+    //add tweet to array
+    //[self.tweetArray arrayByAddingObject:tweet];
+    [self fetchTweets];
+    
+    //reload table
+    //[self.tableView reloadData];
 }
 
 
