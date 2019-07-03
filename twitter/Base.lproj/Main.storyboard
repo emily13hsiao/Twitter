@@ -97,8 +97,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faV-v6-Xjd">
+                                                    <rect key="frame" x="243" y="11" width="111" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="twewet tect" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01B-O8-5bM">
-                                                    <rect key="frame" x="109" y="40" width="259" height="149"/>
+                                                    <rect key="frame" x="109" y="40" width="259" height="119"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -108,18 +115,26 @@
                                                     <rect key="frame" x="15" y="11" width="86" height="104"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faV-v6-Xjd">
-                                                    <rect key="frame" x="243" y="11" width="111" height="19"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25M-yE-72J">
+                                                    <rect key="frame" x="276" y="159" width="84" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Button" image="favor-icon"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="4vg-pO-Q1h" eventType="touchUpInside" id="4b6-og-74e"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e54-oY-APA">
+                                                    <rect key="frame" x="121" y="159" width="84" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button" image="retweet-icon"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likeButton" destination="25M-yE-72J" id="iwS-hf-tsu"/>
                                             <outlet property="nameLabel" destination="faV-v6-Xjd" id="qSP-nq-wHg"/>
                                             <outlet property="profilePictureView" destination="aa9-jK-cNo" id="yDN-GE-P81"/>
+                                            <outlet property="retweetButton" destination="e54-oY-APA" id="Dut-Yp-7B9"/>
                                             <outlet property="timestampLabel" destination="VBf-mM-1JL" id="DeX-1s-qX5"/>
                                             <outlet property="tweetTextLabel" destination="01B-O8-5bM" id="Jbx-cC-Dqp"/>
                                             <outlet property="usernameLabel" destination="Q7x-oc-Pmf" id="wAQ-tf-d7P"/>
@@ -229,8 +244,11 @@
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="edit-icon" width="30" height="27"/>
+        <image name="favor-icon" width="30" height="30"/>
+        <image name="retweet-icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NUg-DR-CPj"/>
         <segue reference="902-jh-1Ig"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -112,6 +112,7 @@
     cell.nameLabel.text = tweet.user.name;
     cell.timestampLabel.text = tweet.createdAtString;
     cell.tweetTextLabel.text = tweet.text;
+    cell.tweet = tweet;
     
     return cell;
 }
