@@ -107,7 +107,7 @@
     Tweet *tweet = self.tweetArray[indexPath.row];
 
     [cell.profilePictureView setImageWithURL:tweet.user.profilePictureURL];
-    //cell.profilePictureView = nil; //update later
+    
     cell.usernameLabel.text = tweet.user.screenName;
     cell.nameLabel.text = tweet.user.name;
     cell.timestampLabel.text = tweet.createdAtString;
@@ -130,6 +130,13 @@
     //reload table
     //[self.tableView reloadData];
 }
+/**
+- (IBAction)didTapLogout:(id)sender {
+    [UIApplication sharedApplication].delegate;
+    
+}
+ **/
+
 
 
 @end

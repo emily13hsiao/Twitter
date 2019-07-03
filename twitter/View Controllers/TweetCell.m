@@ -26,8 +26,16 @@
     self.tweet.favoriteCount += 1;
     
     //Update cell UI
-    [self refreshData];
-    
+    [sender setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+    /**if ([sender isSelected]) {
+        [sender setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+        [sender setSelected:NO];
+     **/
+    /** }else {
+        [sender setImage:favor-icon forState:UIControlStateSelected];
+        [sender setSelected:YES];
+    }
+    **/
     //Send a POST request to the POST favorites/create endpoint
     [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
@@ -38,11 +46,23 @@
         }
     }];
 }
-
--(void)refreshData {
+- (IBAction)didTapRetweet:(id)sender {
+    //Update local tweet model
+    self.tweet.retweeted = YES;
+    self.tweet.favoriteCount += 1;
+    
     //Update cell UI
+    [sender setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
     
-    
+    //Send a POST request to the POST retweets/create endpoint
+    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+            NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully retweeting the following Tweet: %@", tweet.text);
+        }
+    }];
 }
 
 @end
