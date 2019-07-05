@@ -46,23 +46,33 @@
         [sender setSelected:NO];
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
+        //Send a POST request to the POST favorites/create endpoint
+        [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+        }];
         
     }else {
         [sender setSelected:YES];
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
+        //Send a POST request to the POST favorites/create endpoint
+        [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+        }];
     }
     [self refreshCell:self.tweet];
     
-    //Send a POST request to the POST favorites/create endpoint
-    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
-        if(error){
-            NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
-        }
-        else{
-            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
-        }
-    }];
+    
 }
 - (IBAction)didTapRetweet:(id)sender {
     
@@ -70,24 +80,34 @@
         [sender setSelected:NO];
         self.tweet.retweetCount -= 1;
         self.tweet.retweeted = NO;
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully retweeting the following Tweet: %@", tweet.text);
+            }
+        }];
     }else {
         [sender setSelected:YES];
         self.tweet.retweetCount += 1;
         self.tweet.retweeted = YES;
+        
+        //Send a POST request to the POST retweets/create endpoint
+        [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully retweeting the following Tweet: %@", tweet.text);
+            }
+        }];
     }
     
     //Update cell UI
     [self refreshCell:self.tweet];
     
-    //Send a POST request to the POST retweets/create endpoint
-    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
-        if(error){
-            NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
-        }
-        else{
-            NSLog(@"Successfully retweeting the following Tweet: %@", tweet.text);
-        }
-    }];
+    
 }
 
 - (void)refreshCell:(Tweet *)tweet {
