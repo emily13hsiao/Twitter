@@ -7,6 +7,7 @@
 
 #import "TweetCell.h"
 #import "APIManager.h"
+#import "DateTools.h"
 
 @implementation TweetCell
 
@@ -28,7 +29,8 @@
     
     self.usernameLabel.text = tweet.user.screenName;
     self.nameLabel.text = tweet.user.name;
-    self.timestampLabel.text = tweet.createdAtString;
+    //self.timestampLabel.text = tweet.createdAtString;
+    self.timestampLabel.text = tweet.ago;
     self.tweetTextLabel.text = tweet.text;
     
     self.likeButton.selected = tweet.favorited;
