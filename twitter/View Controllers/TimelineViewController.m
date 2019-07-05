@@ -29,8 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
@@ -39,29 +37,14 @@
     self.tableView.delegate = self;
     
     [self fetchTweets];
-    /**
-    // Get timeline
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-        if (tweets) {
-            self.tweetArray = [[NSArray alloc] initWithArray:tweets];
-            
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-            //Reload tableview
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
-    }];
-     **/
 }
 
--(void)fetchTweets {
+- (void)fetchTweets {
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             self.tweetArray = [[NSArray alloc] initWithArray:tweets];
             
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
             //Reload tableview
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
@@ -81,16 +64,8 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
- **/
-/**
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
-}
- **/
+ */
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UINavigationController *navigationController = [segue destinationViewController];
@@ -123,12 +98,8 @@
 
 
 - (void)didTweet:(nonnull Tweet *)tweet {
-    //add tweet to array
-    //[self.tweetArray arrayByAddingObject:tweet];
+    //After tweeting, reload tweets. 
     [self fetchTweets];
-    
-    //reload table
-    //[self.tableView reloadData];
 }
 
 - (IBAction)didTapLogout:(id)sender {
