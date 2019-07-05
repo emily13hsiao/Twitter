@@ -14,7 +14,9 @@
     self = [super init];
     if (self) {
         self.name = dictionary[@"name"];
-        self.screenName = dictionary[@"screen_name"];
+        self.screenName = [NSString stringWithFormat:@"@%@", dictionary[@"screen_name"]];
+        //[NSString stringWithFormat:@"@%@", dictionary[@"screen_name"]];
+        //[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweet.idStr]
         
         /**
          NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
